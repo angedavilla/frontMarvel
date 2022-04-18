@@ -1,0 +1,25 @@
+<div class="container-fluid bg-dark">
+    <h1 class="text-center text-danger">Editar Super Heroe o Villano</h1>
+    <div class="row pb-5">
+        <div class="col-12 col-md-6 offset-0 offset-md-3 pt-3 mb-3">
+            <form  class="form-control text-primary py-1" [formGroup]="form" (ngSubmit)="saveData()">
+                <div>
+                    <label  class="form-label" for="nombre">Nombre</label>
+                    <input id="nombre" class="form-control" [(ngModel)]="herovilla.nombre" formControlName="nombre" type="text" required>
+                </div>
+
+                <div>
+                    <label class="form-label" for="ciudad">Ciudad</label>
+                    <input formControlName="ciudad" [(ngModel)]="herovilla.ciudad" class="form-control" id="ciudad" name="ciudad" type="text" required>
+                </div>
+               
+                <div class="text-center pt-3">
+                    <a  class="btn btn-primary" type="submit" (click)="saveData()">Guardar</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+

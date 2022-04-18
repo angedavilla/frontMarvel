@@ -1,0 +1,32 @@
+<div class="container-fluid bg-dark">
+    <div class="row">
+        <div class="col-12 text-end bg-danger">
+          <div class="col-12 col-md-3 text-end">
+            <input class="form-control mt-3" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Buscar">
+            <div class="text-start">
+              <a class="btn btn-primary my-3" [routerLink]="['/add']" >Agregar Super heroe/Villano</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 text-center bg-dark py-3"  *ngFor="let item of caracters | filter:searchText; let num = index">
+             <div class="card border-danger mb-3">
+                <img src="../../../assets/logo.png" class="card-img-top" alt="...">
+                <div class="card border-danger">
+                  <h3 class="card-title text-warning text-center">{{item.nombre}}</h3>
+                  <div>
+                    <img src="{{item.imagen}}" onerror="this.src='assets/default.jpg'" alt="Marvel" class="img-fluid">
+                  </div>
+                    <p class="card-text text-primary">Lugar: {{item.ciudad}}</p>
+                    <p class="card-text text-danger">Condición: {{item.situacion}}</p>
+                    <p class="card-text text-warning">Grupo: {{item.categoria}}</p>
+                    <p class="card-text text-primary">Poderes: {{item.poderes}}</p>
+                  <div class="text-center pb-3">
+                    <a class="btn btn-primary px-2 mx-2" (click)="editCharacter(item.id)">Editar</a>
+                    <a class="btn btn-danger px-2 mx-2" (click)="deleteCharacter(item.id)">Eliminar</a>
+                  </div>
+
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="container-fluid bg-dark">
+    <h1 class="text-center text-danger">Agregar Super Heroe o Villano</h1>
+    <div class="row pb-5">
+        <div class="col-12 col-md-6 offset-0 offset-md-3 pt-3 mb-3">
+            <form  class="form-control text-primary py-1" [formGroup]="form" (ngSubmit)="saveData()">
+                <div>
+                    <label  class="form-label" for="nombre">Nombre</label>
+                    <input id="nombre"  class="form-control" formControlName="nombre" type="text" required>
+                </div>
+
+                <div>
+                    <label class="form-label" for="ciudad">Ciudad</label>
+                    <input formControlName="ciudad"  class="form-control" id="ciudad" name="ciudad" type="text" required>
+                </div>
+    
+                <div>
+                    <label for="imagen">Imagen (URL)</label>
+                    <input class="form-control" formControlName="imagen"  id="imagen" name="imagen" type="text" required>
+                </div>
+
+                <div>
+                    <label for="poderes">Poderes</label>
+                    <input class="form-control" formControlName="poderes"  id="poderes" name="poderes" type="text" required>
+                </div>
+               
+                <div>
+                    <label for="estado">Condición</label>
+                    <select class="form-control" id="situacion" formControlName="situacion" name="situacion" required>
+                        <option value="Liberad">Libertad</option>
+                        <option value="Detenido">Detenido</option>
+                        <option value="Desconocido">Desconocido</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="estado">Grupo</label>
+                    <select class="form-control" id="categoria" formControlName="categoria" name="categoria" required>
+                        <option value="Super Heroe">Super Heroe</option>
+                        <option value="Villano">Villano</option>
+                    </select>
+                </div>
+                
+                <div class="text-center pt-3">
+                    <a  class="btn btn-primary" (click)="saveData()">Agregar</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
