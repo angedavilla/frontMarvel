@@ -13,7 +13,8 @@ import { IHerosvillains } from '../../interfaces/i-herosvillains';
 export class EditComponent implements OnInit {
 
   @Input() data: IHerosvillains;
-  @Input() idCharacter : number;
+
+  public idCharacter : number;
 
   public herovilla: any = [];
 
@@ -31,12 +32,11 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const idCharacter = this.activeRouted.snapshot.params['id'];
-    console.log(idCharacter);
+    this.idCharacter = +this.activeRouted.snapshot.params['id'];
 
-    this.marvelService.getHerosVillainsById(idCharacter).then((res: any) => {
-      this.herovilla = res[0];
-      console.log(this.herovilla);
+    this.marvelService.getHerosVillainsById(this.idCharacter).then((res: any) => {
+      this.data = res[0];
+      console.log(this.data);
     })
 
     // if (idCharacter) {
